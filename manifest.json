@@ -1,22 +1,22 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Toggle Comments for reddit",
   "short_name": "TCr",
   "description": "Show and hide comments directly on the home page of reddit!",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "icons": { "16": "icon16.png",
 			       "48": "icon48.png",
              "128": "icon128.png"
   },
   "content_scripts": [
     {
-      "matches": ["http://www.reddit.com/*"],
-      "js": ["jquery-1.10.2.min.js","togglecomments.js"]
+      "matches": ["http://www.reddit.com/*","https://www.reddit.com/*"],
+      "js": ["jquery-1.11.3.min.js","togglecomments.js"]
     }
   ],
   "web_accessible_resources": [
-	   "jquery-1.10.2.min.map"
+	   "jquery-1.11.3.min.map"
   ],
   "permissions": [
     "http://www.reddit.com/*"

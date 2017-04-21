@@ -21,21 +21,19 @@ $("a.comments").click(function() {
 
 function nodeInsertedCallback(event) {
 
-	if(event.relatedNode.className == "tagline"){
-
-		var commentLink = $($(event.relatedNode).next().find('a.comments:eq(0)'));
-		if(commentLink[0].className == "comments may-blank"){
-			commentLink.click(function() {
+	if(event.relatedNode.className.indexOf("sitetable") > -1){
+		console.log("here");
+		$(event.relatedNode).find('a.comments:not(.commenttoggle)').each(function(i) {
+			$(this).click(function() {
 					onCommentClick($(this));
 					return false;
-				});
-			commentLink.addClass("commenttoggle");
-		}
+			});
+			$(this).addClass("commenttoggle");
+		});
 	}
 };
 
-
-document.addEventListener('DOMNodeInserted', nodeInsertedCallback);
+document.body.addEventListener('DOMNodeInserted', nodeInsertedCallback);
 
 var redditCommentToggle = {
 	requestPage: function(parentDiv, commentDivId, url) {

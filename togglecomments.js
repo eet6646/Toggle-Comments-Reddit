@@ -22,7 +22,6 @@ $("a.comments").click(function() {
 function nodeInsertedCallback(event) {
 
     if(event.relatedNode.className.indexOf("sitetable") > -1){
-        console.log("here");
         $(event.relatedNode).find('a.comments:not(.commenttoggle)').each(function(i) {
             $(this).click(function() {
                     onCommentClick($(this));
